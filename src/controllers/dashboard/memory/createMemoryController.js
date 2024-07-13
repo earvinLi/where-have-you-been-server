@@ -8,8 +8,8 @@ createMemoryController.post('/create', async (req, res) => {
   const dataToCreateMemory = req.body;
 
   try {
-    await createMemory(dataToCreateMemory);
-    res.send({ message: 'success' });
+    const createdMemory = await createMemory(dataToCreateMemory);
+    res.send({ message: 'success', data: createdMemory });
   } catch (error) {
     res.status(500).send({ message: 'error', error });
   }

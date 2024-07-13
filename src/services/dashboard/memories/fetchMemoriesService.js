@@ -1,7 +1,7 @@
-import mongodbClientConnection from '#utils/mongodbClient.js';
+import mainMongodbDatabase from '#utils/mongodbClient.js';
 
 const fetchMemories = async () => {
-  const fetchedMemories = await mongodbClientConnection.db('main').collection('memories').find({}).toArray();
+  const fetchedMemories = await mainMongodbDatabase.collection('memories').find({}).toArray();
   return fetchedMemories;
 };
 

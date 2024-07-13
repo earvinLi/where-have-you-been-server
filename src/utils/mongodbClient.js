@@ -10,4 +10,5 @@ try {
   console.log(error);
 }
 
-export default mongodbClientConnection;
+const mainMongodbDatabase = mongodbClientConnection.db('main');
+export default mainMongodbDatabase;

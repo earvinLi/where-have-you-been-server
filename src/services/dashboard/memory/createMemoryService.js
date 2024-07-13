@@ -1,7 +1,11 @@
-import mongodbClientConnection from '#utils/mongodbClient.js';
+import mainMongodbDatabase from '#utils/mongodbClient.js';
 
 const createMemory = async (dataToCreateMemory) => {
-  await mongodbClientConnection.db('main').collection('memories').insertOne(dataToCreateMemory);
+  const dataToCreateMemoryToUse = dataToCreateMemory;
+
+  await mainMongodbDatabase.collection('memories').insertOne(dataToCreateMemoryToUse);
+
+  return dataToCreateMemoryToUse;
 };
 
 export default createMemory;
